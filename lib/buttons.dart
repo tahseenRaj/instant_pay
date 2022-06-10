@@ -47,10 +47,18 @@ servicesBtn(IconData icon, String text) {
             color: Color(0xFF3F3397),
             borderRadius: BorderRadius.all(Radius.circular(12)),
           ),
-          child: Icon(
-            icon,
-            color: Color(0xffFA4D96),
-            size: 30,
+          child: TextButton(
+            style: TextButton.styleFrom(
+              splashFactory: NoSplash.splashFactory,
+            ),
+            onPressed: () {
+              print('Service button pressed!');
+            },
+            child: Icon(
+              icon,
+              color: Color(0xffFA4D96),
+              size: 30,
+            ),
           )),
       SizedBox(
         height: 5,
@@ -64,7 +72,8 @@ servicesBtn(IconData icon, String text) {
 }
 
 peoples(String name, String link) {
-  return Expanded(child: Column(
+  return Expanded(
+      child: Column(
     mainAxisSize: MainAxisSize.min,
     children: <Widget>[
       Container(
