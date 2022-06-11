@@ -14,9 +14,9 @@ billingBtn(Color color, String text, Icon icon) {
           Container(
             height: 50,
             width: 40,
-            color: Color.fromARGB(123, 0, 0, 0),
+            color: const Color.fromARGB(123, 0, 0, 0),
             child: IconTheme(
-              data: new IconThemeData(color: Colors.white70),
+              data: const IconThemeData(color: Colors.white70),
               child: icon,
             ),
           ),
@@ -51,21 +51,19 @@ servicesBtn(IconData icon, String text) {
             style: TextButton.styleFrom(
               splashFactory: NoSplash.splashFactory,
             ),
-            onPressed: () {
-              print('Service button pressed!');
-            },
+            onPressed: () {},
             child: Icon(
               icon,
-              color: Color(0xffFA4D96),
+              color: const Color(0xffFA4D96),
               size: 30,
             ),
           )),
-      SizedBox(
+      const SizedBox(
         height: 5,
       ),
       Text(
         text,
-        style: TextStyle(color: Colors.white, fontSize: 13),
+        style: const TextStyle(color: Colors.white, fontSize: 13),
       ),
     ],
   ));
@@ -79,16 +77,16 @@ peoples(String name, String link) {
       Container(
           height: 60,
           width: double.maxFinite,
-          decoration: BoxDecoration(),
+          decoration: const BoxDecoration(),
           child: CircleAvatar(
             backgroundImage: NetworkImage(link),
           )),
-      SizedBox(
+      const SizedBox(
         height: 5,
       ),
       Text(
         name,
-        style: TextStyle(color: Colors.white, fontSize: 13),
+        style: const TextStyle(color: Colors.white, fontSize: 13),
       ),
     ],
   ));
@@ -96,7 +94,7 @@ peoples(String name, String link) {
 
 accounts(String bank, int accNum, String balance, Color color) {
   return Container(
-    padding: EdgeInsets.all(15),
+    padding: const EdgeInsets.all(15),
     decoration: BoxDecoration(
       color: color,
       borderRadius: BorderRadius.circular(10),
@@ -105,20 +103,93 @@ accounts(String bank, int accNum, String balance, Color color) {
       children: [
         Text(
           bank,
-          style: TextStyle(
+          style: const TextStyle(
               fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 5),
+        const SizedBox(height: 5),
         Text(
-          '${accNum}',
-          style: TextStyle(fontSize: 13, color: Colors.white),
+          '$accNum',
+          style: const TextStyle(fontSize: 12, color: Colors.white),
         ),
-        SizedBox(height: 5),
+        const SizedBox(height: 10),
         Text(
-          '\$${balance}',
-          style: TextStyle(
-              fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
+          '\$$balance',
+          style: const TextStyle(
+              fontSize: 20,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 1),
         ),
+      ],
+    ),
+  );
+}
+
+scratchCard() {
+  return Expanded(
+    child: Container(
+        margin: const EdgeInsets.all(5),
+        height: 100,
+        width: double.maxFinite,
+        decoration: const BoxDecoration(
+          color: Color(0xFF3F3397),
+          borderRadius: BorderRadius.all(Radius.circular(12)),
+        ),
+        child: TextButton(
+            style: TextButton.styleFrom(
+              splashFactory: NoSplash.splashFactory,
+            ),
+            onPressed: () {},
+            child: const Image(
+              image: NetworkImage('https://i.gifer.com/XOsX.gif'),
+              width: 50,
+            ))),
+  );
+}
+
+rewards(String reward, String description, String myimage) {
+  return Container(
+    width: double.infinity,
+    padding: const EdgeInsets.all(10),
+    height: 120,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(12),
+      color: Colors.deepPurple,
+    ),
+    child: Row(
+      children: [
+        SizedBox(
+          width: 100,
+          child: Center(
+              child: Image(image: AssetImage('assets/images/$myimage.png'))),
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              reward,
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold),
+            ),
+            Text(
+              description,
+              style: const TextStyle(color: Colors.white, fontSize: 11),
+            ),
+            TextButton(
+                style: TextButton.styleFrom(
+                  splashFactory: NoSplash.splashFactory,
+                  backgroundColor: Colors.purple,
+                ),
+                onPressed: () {},
+                child: const Text(
+                  'Collect Now',
+                  style: TextStyle(color: Colors.pinkAccent),
+                )),
+          ],
+        )
       ],
     ),
   );

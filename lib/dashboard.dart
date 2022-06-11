@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:instant_pay/balance.dart';
 import 'package:instant_pay/buttons.dart';
 import 'package:instant_pay/home.dart.dart';
+import 'package:instant_pay/rewards.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -119,12 +120,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
               style: TextStyle(color: Colors.white),
             ),
           ),
-          Center(
-            child: Text(
-              "It's cloudy here",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
+          Rewards(),
         ],
       ),
     );
