@@ -74,7 +74,7 @@ class _HomeState extends State<Home> {
                   ),
                 ],
               ),
-              SizedBox(height: 15,),
+              const SizedBox(height: 15,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -106,7 +106,7 @@ class _HomeState extends State<Home> {
                   ),
                 ],
               ),
-              SizedBox(height: 15,),
+              const SizedBox(height: 15,),
               Column(
                 children: [
                   Row(
