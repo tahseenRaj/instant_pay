@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:instant_pay/balance.dart';
 import 'package:instant_pay/buttons.dart';
 import 'package:instant_pay/home.dart.dart';
+import 'package:instant_pay/offers.dart';
 import 'package:instant_pay/rewards.dart';
 
 class Dashboard extends StatefulWidget {
@@ -111,15 +112,10 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
       ),
       body: TabBarView(
         controller: _tabController,
-        children: <Widget>[
+        children: const <Widget>[
           Home(),
           Balance(),
-          Center(
-            child: Text(
-              "It's sunny here",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
+          Offers(),
           Rewards(),
         ],
       ),

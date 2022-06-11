@@ -147,7 +147,7 @@ scratchCard() {
   );
 }
 
-rewards(String reward, String description, String myimage) {
+rewards(String reward, String description, String image) {
   return Container(
     width: double.infinity,
     padding: const EdgeInsets.all(10),
@@ -161,7 +161,7 @@ rewards(String reward, String description, String myimage) {
         SizedBox(
           width: 100,
           child: Center(
-              child: Image(image: AssetImage('assets/images/$myimage.png'))),
+              child: Image(image: AssetImage('assets/images/$image.png'))),
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -189,6 +189,63 @@ rewards(String reward, String description, String myimage) {
                   style: TextStyle(color: Colors.pinkAccent),
                 )),
           ],
+        )
+      ],
+    ),
+  );
+}
+
+offers(String? offer, String code, String description, String image, Color color) {
+  return Container(
+    margin: const EdgeInsets.symmetric(vertical: 10),
+    width: double.infinity,
+    padding: const EdgeInsets.all(10),
+    height: 120,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(12),
+      color: color,
+    ),
+    child: Row(
+      children: [
+        Container(
+          width: 100,
+          child: Center(
+              child: Image(image: AssetImage('assets/images/$image.png'))),
+        ),
+        Flexible(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+
+            children: [
+              Text(
+                offer!,
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1.5),
+              ),
+              // SizedBox(height: 5),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 2),
+                child: Text(
+                  code,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+              ),
+              // SizedBox(height: 5),
+              Flexible(
+                child: Text(
+                description,
+                style: const TextStyle(color: Colors.white, fontSize: 11),
+                ),
+              ),
+            ],
+          ),
         )
       ],
     ),
