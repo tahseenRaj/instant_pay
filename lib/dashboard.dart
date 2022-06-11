@@ -95,7 +95,6 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
             Tab(
               iconMargin: EdgeInsets.all(0),
               text: 'Home',
-              // child: Text('Home', style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 1),),
             ),
             Tab(
               text: 'Balance',
@@ -113,7 +112,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
         controller: _tabController,
         children: <Widget>[
           Home(),
-          balance(),
+          Balance(),
           Center(
             child: Text(
               "It's sunny here",

@@ -93,3 +93,33 @@ peoples(String name, String link) {
     ],
   ));
 }
+
+accounts(String bank, int accNum, String balance, Color color) {
+  return Container(
+    padding: EdgeInsets.all(15),
+    decoration: BoxDecoration(
+      color: color,
+      borderRadius: BorderRadius.circular(10),
+    ),
+    child: Column(
+      children: [
+        Text(
+          bank,
+          style: TextStyle(
+              fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: 5),
+        Text(
+          '${accNum}',
+          style: TextStyle(fontSize: 13, color: Colors.white),
+        ),
+        SizedBox(height: 5),
+        Text(
+          '\$${balance}',
+          style: TextStyle(
+              fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+      ],
+    ),
+  );
+}
