@@ -7,32 +7,27 @@ class Starter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: const Color(0xff181A20),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Expanded(
             child: Center(
                 child: Image(
-              image: AssetImage('assets/images/icon.png'),
-              color: Colors.white,
-              fit: BoxFit.fill,
-              height: 75,
-              width: 75,
+              image: AssetImage('assets/images/duck.gif'),
+              fit: BoxFit.scaleDown,
             )),
           ),
           Container(
-            decoration: const BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.purple,
-                  offset: Offset(3.0, 4.0),
-                  blurRadius: 5.0,
-                  spreadRadius: 1.0,
-                  blurStyle: BlurStyle.normal,
-                )
-              ]
-            ),
+            decoration: const BoxDecoration(boxShadow: [
+              BoxShadow(
+                color: Colors.purple,
+                offset: Offset(3.0, 4.0),
+                blurRadius: 5.0,
+                spreadRadius: 1.0,
+                blurStyle: BlurStyle.normal,
+              )
+            ]),
             margin: const EdgeInsets.symmetric(vertical: 10),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(

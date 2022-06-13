@@ -37,21 +37,7 @@ class Rewards extends StatelessWidget {
                     const SizedBox(
                       height: 15,
                     ),
-                    SizedBox(
-                      width: double.infinity,
-                      height: 50,
-                      child: TextButton(
-                          style: TextButton.styleFrom(
-                            primary: Colors.white,
-                            backgroundColor:
-                                const Color.fromARGB(255, 79, 84, 97),
-                            shape: const RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10))),
-                          ),
-                          onPressed: () {},
-                          child: const Text('View your cashback history')),
-                    ),
+                    longBtn('View your cashback history'),
                   ],
                 ),
               )),

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:instant_pay/balance.dart';
-import 'package:instant_pay/buttons.dart';
 import 'package:instant_pay/home.dart.dart';
+import 'package:instant_pay/notification.dart';
 import 'package:instant_pay/offers.dart';
+import 'package:instant_pay/profile.dart';
+import 'package:instant_pay/receive.dart';
 import 'package:instant_pay/rewards.dart';
 
 class Dashboard extends StatefulWidget {
@@ -33,16 +35,19 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
               bottomLeft: Radius.circular(20)),
         ),
         elevation: 0.00,
-        backgroundColor: const Color(0xFF343645),
-        // leadingWidth: 45,
-        leading: const Padding(
-          padding: EdgeInsets.only(left: 16.0),
-          child: CircleAvatar(
-            backgroundColor: Color.fromARGB(100, 176, 190, 197),
-            radius: 20,
-            child: CircleAvatar(
-              radius: 17,
-              backgroundImage: AssetImage('assets/images/user.jpg'),
+        backgroundColor: const Color.fromARGB(255, 47, 51, 61),
+        // leadingWidth: 60,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 16.0),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Profile()));
+            },
+            child: const CircleAvatar(
+              // radius: 30.0,
+              child: ClipOval(
+                  child: Image(image: AssetImage('assets/images/user.jpg'))),
             ),
           ),
         ),
@@ -54,6 +59,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
           ),
           height: 40,
           child: TextField(
+            controller: TextEditingController(),
             decoration: InputDecoration(
                 contentPadding: const EdgeInsets.symmetric(horizontal: 10),
                 hintText: " Search Users, ID's etc",
@@ -72,15 +78,21 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
             ),
           ),
         ),
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.only(right: 16.0),
+            padding: EdgeInsets.only(right: 16),
             child: CircleAvatar(
-              backgroundColor: Color.fromARGB(100, 176, 190, 197),
-              child: Icon(
-                Icons.notification_add_outlined,
-                size: 28,
-                color: Colors.white,
+              radius: 20,
+              backgroundColor: const Color.fromARGB(100, 176, 190, 197),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Notifications()));
+                },
+                icon: const Icon(
+                  Icons.notifications,
+                  color: Colors.white,
+                ),
               ),
             ),
           )
@@ -110,14 +122,31 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
           ],
         ),
       ),
-      body: TabBarView(
-        controller: _tabController,
-        children: const <Widget>[
-          Home(),
-          Balance(),
-          Offers(),
-          Rewards(),
-        ],
+      floatingActionButton: FloatingActionButton.extended(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8), // <-- Radius
+        ),
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const Receive()));
+        },
+        backgroundColor: const Color(0xFF08348A),
+        label: const Text('Receive Money'),
+      ),
+      body: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+          TextEditingController().clear();
+        },
+        child: TabBarView(
+          controller: _tabController,
+          children: const <Widget>[
+            Home(),
+            Balance(),
+            Offers(),
+            Rewards(),
+          ],
+        ),
       ),
     );
   }
